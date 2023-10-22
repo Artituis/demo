@@ -22,10 +22,14 @@ public class A_EstatisticaNormalTest {
             new Evento(16,"SPRING RUN", 22, 8, 2021, 5000, 0, 41, 30),      
             new Evento(18,"WINTER RUN", 2, 8, 2021, 5000, 0, 42, 30)));      
     }
+    
     @Test
     public void testEstatisticaNormal(){
         EstatisticaNormal est = new EstatisticaNormal(rep);
         // Falta fazer os calculos pra fazer o assertEquals
-        assertEquals(0, est.calculaEstatisticas(0));
+        EstatisticasDTO estatisticas = est.calculaEstatisticas(5000);
+        assertEquals(2520.0, estatisticas.getMedia());
+        assertEquals(2520.0, estatisticas.getMediana());
+        assertEquals(2250, estatisticas.getDesvioPadrao());
     }
 }
